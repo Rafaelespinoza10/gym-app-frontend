@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import type { UserLogin } from "../../models";
-import { emailValidation, userNameValidation } from "../../config";
+import { emailValidation, userNameValidation } from "../utils";
+
+
 
 interface PropsLoginForm {
   onLogin: (data: UserLogin) => void;

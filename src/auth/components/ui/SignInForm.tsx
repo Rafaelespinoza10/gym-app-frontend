@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm} from 'react-hook-form';
 import type {  RegisterUser } from "../../models";
-import { emailValidation, passwordMessage, strongPasswordValidation } from "../../config/validations";
+import { emailValidation, passwordMessage, strongPasswordValidation } from "../utils/validations";
 
 interface PropsSignIn{
     onRegister: (data: RegisterUser) => void;

@@ -11,7 +11,7 @@ import {
   PublicRouter,
   RegisterPage,
   SummaryPage,
-} from "./router";
+} from "./app/router";
 import { Suspense } from "react";
 import { LoadingOverlay } from "./shared/components/ui/LoadingCircular";
 import { Page404NotFound } from "./shared/pages/NotFoundPage";
@@ -50,7 +50,10 @@ function App() {
               </PrivateRouter>
             }
           >
-            <Route path="summary" element={<SummaryPage />} />
+            <Route 
+            path="summary" 
+            element={<SummaryPage />} 
+            />
             <Route
               path="register-exercises"
               element={<ExercisesRegisterPage />}
@@ -59,6 +62,7 @@ function App() {
               path="register-progress"
               element={<ProgressRegisterPage />}
             />
+
           </Route>
 
           <Route path="*" element={<Page404NotFound />} />

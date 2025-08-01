@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import type { UserLogin } from "../models";
 import { LoginForm } from "../components/ui/LoginForm"
-import { loginService } from "../config";
 import { toast } from "react-toastify";
-import { useLoading } from "../../context/LoadingContext";
+import { useLoading } from "../../app/context/LoadingContext";
 import { useDispatch } from "react-redux";
-import { login } from "../store/slices/authSlice";
+import { login } from "../slices/authSlice";
+import { loginService } from "../services";
 
 
  const LoginPage = () => {
