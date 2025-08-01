@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import type { RegisterUser } from "../models";
 import {  SignInForm } from "../components/ui/SignInForm";
-import { register } from "../config";
-import { useLoading } from "../../context/LoadingContext";
+import { useLoading } from "../../app/context/LoadingContext";
+import { register } from "../services";
 
  const RegisterPage = () => {
   const navigate = useNavigate();

@@ -5,7 +5,7 @@ import { Dumbbell, LayoutDashboard, Settings, TrendingUp } from "lucide-react";
 const navItems = [
   { label: "Summary", icon: <LayoutDashboard size={20} />, path: "summary" },
   { label: "Register Exercise", icon: <Dumbbell size={20} />, path: "register-exercises" },
-  { label: "Register Progress", icon: <TrendingUp  size={20} />, path: "dashboard" },
+  { label: "Register Progress", icon: <TrendingUp  size={20} />, path: "register-progress" },
 ];
 
 export const SideBar = () => {
@@ -14,7 +14,7 @@ export const SideBar = () => {
   return (
     <>
       {/* screen larges or mediums */}
-      <aside className="hidden md:flex fixed top-1/2 left-6 -translate-y-1/2 bg-[#f5f5f5] w-16 rounded-3xl shadow-md  flex-col items-center py-6 space-y-6 z-50">
+      <aside className="hidden md:flex fixed top-1/2 left-6 -translate-y-1/2 bg-white w-16 rounded-3xl shadow-md  flex-col items-center py-6 space-y-6 z-50">
         <div className="w-10 h-10 bg-black rounded-full mb-6" />
 
         {navItems.map((item) => (

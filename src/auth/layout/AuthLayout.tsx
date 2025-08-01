@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { Logo } from "../../shared/components/ui/Logo";
-import { useLoading } from "../../context/LoadingContext";
+import { useLoading } from "../../app/context/LoadingContext";
 import { LoadingOverlay } from "../../shared/components/ui/LoadingCircular";
 
 export const AuthLayout = () => {

@@ -15,13 +15,13 @@ export const Navbar = ({title = 'title'}: NavBarProps) => {
         </h1>
         <div className="flex items-center gap-3 bg-white p-2 pr-4 rounded-full shadow-sm">
           <img
-            src="https://via.placeholder.com/36"
+            src="/images/categories/profile_example.jpg"
             alt="avatar"
             className="w-9 h-9 rounded-full"
           />
           <div className="text-sm">
-            <p className="font-medium text-gray-800">John Trainer</p>
-            <p className="text-gray-400 text-xs">Advanced</p>
+            <p className="font-medium text-gray-800">Rafael Moreno</p>
+            <p className="text-gray-400 text-xs">Administrator</p>
           </div>
         </div>
       </div>
