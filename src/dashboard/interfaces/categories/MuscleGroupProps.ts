@@ -19,6 +19,10 @@ export interface MuscleProps{
 export interface CardMuscleGroupProps{
     group: MuscleProps;
     className?: string;
+    onClick: () => void;
 
 }
 
+export interface MuscleGroupExercisesProps{
+    onSelectGroup: (name: string) => void
+}
