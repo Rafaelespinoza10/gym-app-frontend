@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getCategoriesThunks } from '../thunks';
-import type { MuscleProps } from '../interfaces';
+import type { MuscleProps } from '../interfaces/categories';
 
 interface CategoriesState{
     categories: MuscleProps[];
@@ -33,7 +33,6 @@ const categoriesSlice = createSlice({
             state.error = action.payload as string;
         });
     },
-
 });
 
 export default categoriesSlice.reducer; 
