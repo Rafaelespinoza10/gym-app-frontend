@@ -1,8 +1,10 @@
-import type { CardMuscleGroupProps } from "../../interfaces"
+import type { CardMuscleGroupProps } from "../../interfaces/categories"
 
-export const CardMuscleGroup = ({ group }: CardMuscleGroupProps) => {
+export const CardMuscleGroup = ({ group, onClick }: CardMuscleGroupProps) => {
+  
     return (
         <div
+          onClick={onClick}
           className={`relative overflow-hidden rounded-2xl cursor-pointer group min-h-[200px] transition-all duration-500 ease-in-out hover:scale-[1.02] hover:shadow-xl ${
             group.gridClass || ""
           }`}
