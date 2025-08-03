@@ -1,1 +1,2 @@
-export * from './categories.config';
+export * from './categories.api';
+export * from './exercises.api';
