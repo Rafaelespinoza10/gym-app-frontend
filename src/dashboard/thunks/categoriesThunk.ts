@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import type { MuscleProps } from "../interfaces";
-import { getCategories } from "../services/categories.config";
+import type { MuscleProps } from "../interfaces/categories";
+import { getCategories } from "../services/categories.api";
 
 export const getCategoriesThunks = createAsyncThunk<MuscleProps[]>(
     "categories/getAll",
@@ -12,7 +12,6 @@ export const getCategoriesThunks = createAsyncThunk<MuscleProps[]>(
                 case "piernas":
                   return {
                     ...cat,
-                    name: "Legs",
                     imageUrl: "/images/categories/legs.jpg",
                     textColor: "text-white",
                     gridClass: "md:col-span-2",
@@ -20,21 +19,18 @@ export const getCategoriesThunks = createAsyncThunk<MuscleProps[]>(
                 case "pecho":
                   return {
                     ...cat,
-                    name: "Chest",
                     imageUrl: "/images/categories/chest.jpg",
                     textColor: "text-white",
                   };
                 case "espalda":
                   return {
                     ...cat,
-                    name: "Back",
                     imageUrl: "/images/categories/back.jpg",
                     textColor: "text-white",
                   };
                 case "brazos":
                   return {
                     ...cat,
-                    name: "Arms",
                     imageUrl: "/images/categories/arms.jpg",
                     textColor: "text-white",
                     gridClass: "md:row-span-2",
@@ -42,7 +38,6 @@ export const getCategoriesThunks = createAsyncThunk<MuscleProps[]>(
                 case "hombros":
                   return {
                     ...cat,
-                    name: "Shoulders",
                     imageUrl: "/images/categories/shoulders.jpg",
                     textColor: "text-white",
                     gridClass: "md:row-span-2",
