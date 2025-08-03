@@ -5,9 +5,11 @@ import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { getCategoriesThunks } from "../../thunks";
 import { SkeletonCardMuscleGroup } from "./SkeletonCardMuscleGroup";
 import { skeletonCategoriesGridClass } from "../../interfaces/categories/SkeletonCards.props";
+import type { MuscleGroupExercisesProps } from "../../interfaces/categories";
 
 
-export const MuscleGroupExercises = () => {
+
+export const MuscleGroupExercises = ({ onSelectGroup }:MuscleGroupExercisesProps ) => {
   const dispatch = useAppDispatch();
   const {categories, loading, error} = useAppSelector((state) => state.categories);
 
@@ -76,7 +78,7 @@ export const MuscleGroupExercises = () => {
   return (
 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[200px] gap-4">
 {categories.map((group) => (
-        <CardMuscleGroup key={group._id} group={group} />
+        <CardMuscleGroup key={group._id} group={group} onClick={() => onSelectGroup(group.name)}/>
       ))}
     </div>
   );
