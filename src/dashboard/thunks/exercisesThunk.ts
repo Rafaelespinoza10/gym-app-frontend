@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { Exercise } from "../interfaces/exercises/Exercises.model";
 import { getExercises } from "../services";
+import { buildException } from "../libs";
 
 
 export const getAllExercisesThunk = createAsyncThunk<
@@ -14,8 +15,8 @@ export const getAllExercisesThunk = createAsyncThunk<
             console.log('response', response.data);
             return response.data;
         } catch (error) {
-            if (error instanceof Error) return rejectWithValue(error.message);
-            return rejectWithValue("Unknown error");
+            const {  message } = buildException(error);
+            return rejectWithValue(message);
         }
     }
 )   

@@ -30,7 +30,7 @@ const exercisesSlice = createSlice({
         })
         .addCase(getAllExercisesThunk.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.payload as string; 
+            state.error = (action.payload as string) ?? action.error.message ?? 'Failed';
         })
     }
 });

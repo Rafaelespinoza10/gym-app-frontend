@@ -1,36 +1,46 @@
 import Masonry from 'react-masonry-css';
 import type { ExercisesGroupProps } from '../../interfaces/exercises/Exercises.props';
 import { CardExercise } from './CardExercise';
+import { useMemo } from 'react';
 
 export const ExercisesGroup = ({
-  exercises,
-  selectedExerciseName,
-  onExerciseSelected,
-}: ExercisesGroupProps) => {
-  const breakpointColumnsObj = {
-    default: 3,
-    1100: 2,
-    700: 1
-  };
-
-  return (
-    <Masonry
-      breakpointCols={breakpointColumnsObj}
-      className="my-masonry-grid"
-      columnClassName="my-masonry-grid_column"
-    >
-      {exercises.map((exercise) => {
+    exercises,
+    selectedExerciseName,
+    onExerciseSelected,
+  }: ExercisesGroupProps) => {
+    const breakpointColumnsObj = {
+      default: 3,
+      1024: 2,
+      640: 1,
+    };
   
-        return (
-          <div key={exercise.name} className="mb-4">
+    const exercisesWithSize = useMemo(() => {
+      return exercises.map((exercise) => ({
+        ...exercise,
+        isLarge: Math.random() < 0.25, // 25% de probabilidad
+      }));
+    }, [exercises]);
+  
+    return (
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className="flex w-auto -ml-4"
+        columnClassName="pl-4 bg-clip-padding"
+      >
+        {exercisesWithSize.map((exercise) => (
+          <div
+            key={`${exercise.name}-${exercise._id}`}
+            className={`mb-4 break-inside-avoid`}
+          >
             <CardExercise
               exercise={exercise}
               isSelected={selectedExerciseName === exercise.name}
               onClick={() => onExerciseSelected(exercise)}
+              isLarge={exercise.isLarge}
             />
           </div>
-        );
-      })}
-    </Masonry>
-  );
-};
+        ))}
+      </Masonry>
+    );
+  };
+  
