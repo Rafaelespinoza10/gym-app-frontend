@@ -4,7 +4,6 @@ import { AuthLayout } from "./auth/layout/AuthLayout";
 import { DashboardLayout } from "./dashboard/layout/DashboardLayout";
 import { ToastContainer } from "react-toastify";
 import {
-  ExercisesRegisterPage,
   LoginPage,
   PrivateRouter,
   ProgressRegisterPage,
@@ -15,6 +14,7 @@ import {
 import { Suspense } from "react";
 import { LoadingOverlay } from "./shared/components/ui/LoadingCircular";
 import { Page404NotFound } from "./shared/pages/NotFoundPage";
+import MetricsPage from "./dashboard/pages/MetricsPage";
 
 function App() {
   return (
@@ -55,8 +55,8 @@ function App() {
             element={<SummaryPage />} 
             />
             <Route
-              path="register-exercises"
-              element={<ExercisesRegisterPage />}
+              path="metrics"
+              element={<MetricsPage />}
             />
             <Route
               path="register-progress"

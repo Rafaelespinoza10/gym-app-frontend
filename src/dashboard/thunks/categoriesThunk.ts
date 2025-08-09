@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import type { MuscleProps } from "../interfaces/categories";
 import { getCategories } from "../services/categories.api";
+import { buildException } from "../libs";
 
 export const getCategoriesThunks = createAsyncThunk<MuscleProps[]>(
     "categories/getAll",
@@ -52,10 +53,8 @@ export const getCategoriesThunks = createAsyncThunk<MuscleProps[]>(
             });
             return mapped;
           } catch (error) {
-            if (error instanceof Error) {
-              return rejectWithValue(error.message);
-            }
-            return rejectWithValue("Unknown error occurred");
+            const {  message } = buildException(error);
+            return rejectWithValue(message);
           }
     }
 )

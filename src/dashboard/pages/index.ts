@@ -1,3 +1,3 @@
-export * from './ExercisesRegisterPage';
+export * from './MetricsPage';
 export * from './ProgressRegisterPage';
 export * from './SummaryPage';

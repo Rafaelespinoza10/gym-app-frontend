@@ -7,5 +7,5 @@ export const RegisterPage = lazy(() => import('../../auth/pages/RegisterPage'));
 
 // Private pages
 export const SummaryPage = lazy(() => import('../../dashboard/pages/SummaryPage'));
-export const ExercisesRegisterPage = lazy(() => import('../../dashboard/pages/ExercisesRegisterPage'));
+export const ExercisesRegisterPage = lazy(() => import('../../dashboard/pages/MetricsPage'));
 export const ProgressRegisterPage = lazy(() => import('../../dashboard/pages/ProgressRegisterPage'));

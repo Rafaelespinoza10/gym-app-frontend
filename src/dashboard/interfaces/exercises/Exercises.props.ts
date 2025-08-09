@@ -10,3 +10,8 @@ export interface ExercisesGroupProps {
     selectedExerciseName: string | null;
     onExerciseSelected: (exercise: Exercise) => void;
 }
+
+
+export interface FormRegisterProgressProps{
+    exercise:  Exercise | undefined;
+}

@@ -3,13 +3,25 @@ import clsx from "clsx";
 import { Dumbbell, LayoutDashboard, Settings, TrendingUp } from "lucide-react";
 
 const navItems = [
-  { label: "Summary", icon: <LayoutDashboard size={20} />, path: "summary" },
-  { label: "Register Exercise", icon: <Dumbbell size={20} />, path: "register-exercises" },
-  { label: "Register Progress", icon: <TrendingUp  size={20} />, path: "register-progress" },
+  { label: "Summary",
+     icon: <LayoutDashboard size={20} />,
+      path: "/dashboard/summary" 
+    },
+  {
+    label: "Register Exercise",
+    icon: <Dumbbell size={20} />,
+    path: "/dashboard/metrics",
+  },
+  {
+    label: "Register Progress",
+    icon: <TrendingUp size={20} />,
+    path: "/dashboard/register-progress",
+  },
 ];
 
 export const SideBar = () => {
   const location = useLocation();
+  console.log('location', location)
 
   return (
     <>
@@ -41,30 +53,34 @@ export const SideBar = () => {
       </aside>
 
       {/* screen small */}
-      <aside className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-md bg-white/60 backdrop-blur-md shadow-xl border border-white/20 rounded-2xl md:hidden">
-  <nav className="flex justify-around items-center h-16 px-2">
-    {navItems.map((item) => {
-      const isActive = location.pathname === item.path;
+      <aside
+        className="fixed bottom-4 left-4 right-4 z-50 mx-auto max-w-md bg-white/70 backdrop-blur-md shadow-xl border border-white/20 rounded-2xl md:hidden"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
+        <nav className="flex justify-around items-center h-16 px-2">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
 
-      return (
-        <Link
-          to={item.path}
-          key={item.label}
-          className={clsx(
-            "flex flex-col items-center justify-center text-xs font-medium rounded-xl px-3 py-2 transition-all duration-200",
-            isActive
-              ? "bg-[#e0ecff] text-[#5386F4] shadow-inner"
-              : "text-gray-500 hover:text-[#5386F4]"
-          )}
-        >
-          {item.icon}
-          <span className="text-[11px] mt-1 font-medium">{item.label}</span>
-        </Link>
-      );
-    })}
-  </nav>
-</aside>
-
+            return (
+              <Link
+                to={item.path}
+                key={item.label}
+                className={clsx(
+                  "flex flex-col items-center justify-center text-xs font-medium rounded-xl px-3 py-2 transition-all duration-200",
+                  isActive
+                    ? "bg-[#e0ecff] text-[#5386F4] shadow-inner"
+                    : "text-gray-500 hover:text-[#5386F4]"
+                )}
+              >
+                {item.icon}
+                <span className="text-[11px] mt-1 font-medium">
+                  {item.label}
+                </span>
+              </Link>
+            );
+          })}
+        </nav>
+      </aside>
     </>
   );
 };
